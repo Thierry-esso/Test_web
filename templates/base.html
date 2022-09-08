@@ -1,0 +1,89 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titre %} {% endblock %}</title>
+    <style>
+        .tout{
+            width: 80%;
+            margin: auto;
+        }
+
+        h1{
+            margin: auto;
+            width: 80%;
+            margin-top: 30px;
+        }
+
+        table{
+            margin: auto;
+            width: 80%;
+            margin-top: 40px;
+        }
+        table tr td{
+            padding: 10;
+        }
+        table tr td a{
+            padding: 10;
+            text-decoration: none;
+        }
+        table thead{
+            background-color: teal;
+            color: #fff;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        ul, .logo{
+            display: inline-block;
+        }
+        ul{
+            list-style: none;
+            float: right;
+        }
+        ul li{
+            display: inline-block;
+            padding: 10px 20px;            
+        }
+        ul li a{
+            text-decoration: none;
+        }
+        .tete{
+            width: 90%;
+            margin: auto;
+            padding-top: 2%;
+            padding-bottom: 4%;
+            background-color: gainsboro;
+        }
+        .logo{
+            margin-top: 2%;
+            margin-left: 2%
+        }
+        .delete{
+            color: red;
+        }
+        .edite{
+            color: rgb(15, 7, 104);
+        }
+    </style>
+</head>
+<body>
+    <div class="tout">
+        <div class="tete">
+            <div class="logo">
+                <img src="" alt="ANADEB">
+            </div>
+            <ul>
+                <li><a href="/admin">Administration</a></li>
+                <li><a href="{% url 'liste' %}">Liste des capsule</a></li>
+                <li><a href="{% url 'capsules' %}" target="_blank">Liste des capsules avec API</a></li>
+            </ul>
+        </div>
+
+        {% block contenu %} {% endblock %}
+
+    </div>
+    
+
+</body>
+</html>

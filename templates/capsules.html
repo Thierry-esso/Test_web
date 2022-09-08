@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block titre %} Page d'accueil {% endblock %}
+
+    
+
+    {% block contenu %} 
+    <h1>Liste des capsules!</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Libellé</td>
+                <td>Forme</td>
+                <td>Couleur</td>
+                <td>Description</td>
+                <td>Date création</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for list_capsule in list_capsule %}
+            <tr>
+                <td>{{ list_capsule.libelle }}</td>
+                <td>{{ list_capsule.forme }}</td>
+                <td>{{ list_capsule.couleur }}</td>
+                <td>{{ list_capsule.description }}</td>
+                <td>{{ list_capsule.created }}</td>
+                <td>
+                    <a href="/api/capsule/{{ list_capsule.id }}" target="_blank">Voir plus</a>
+                    <a href="/api/update/{{ list_capsule.id }}" target="_blank" class="edite">Edit</a>
+                    <a href="/api/delete/{{ list_capsule.id }}" target="_blank" class="delete">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}
